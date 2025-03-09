@@ -166,7 +166,7 @@ img{
 label{
   font-size: 12px;
   font-weight: 400;
-  color: #d9d9d9;
+  color: black;
 }
 .btn-card{
   background: none;
@@ -281,4 +281,20 @@ input[type="checkbox"] {
 }
 .grey{
   background-color: #d9d9d9;
+}
+.dropdown_item{
+  display: flex;
+  align-items: center;
+}
+.dropdown_item span{
+  margin-left: auto;
+}
+#selectedItems button {
+  display: flex;
+  gap: 5px;
+  background-color: #d9d9d9;
+  color: #5b4cc5;
+  font-weight: 500;
+  font-size: 15px;
+  margin-right: 10px;
 }

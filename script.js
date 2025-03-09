@@ -35,28 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 
-  
-    function removeItem(element) {
-  
-      const value = element.parentNode.textContent.slice(0, -1); // Получаем значение элемента
-  
-      const checkbox = dropdownContent.querySelector(`input[value="${value}"]`);
-  
-      if (checkbox) {
-  
-        checkbox.checked = false; // Снимаем галочку
-  
-      }
-  
-      element.parentNode.remove(); // Удаляем элемент из выбранных
-  
-    }
-
-
-
-
-
-
     //Удаление формы заполнения товара
 
     document.querySelector('body').onclick = function(e) {
@@ -73,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
    
 
     const container = document.querySelector('.cards');
-const buttonAdd = document.querySelector('.buttonAdd');
+    const buttonAdd = document.querySelector('.buttonAdd');
 
 // Функция для создания новой формы.
 function createCard() {
@@ -189,7 +167,6 @@ document.querySelectorAll('input').forEach(element => {
 });
 
 //Форма с выпадающим списком
-
 const input = document.getElementById('myInput');
 const dropdown = document.getElementById('dropdown');
 const selectedItems = document.getElementById('selectedItems');
@@ -199,34 +176,27 @@ input.addEventListener('click', function (e) {
 })
 
 
-
-dropdown.addEventListener('change', (event) => { // При изменении чекбоксов
+dropdown.addEventListener('change', (event) => {
   const checkbox = event.target;
   if (checkbox.checked) {
-    const item = document.createElement('div');
-    item.innerHTML = checkbox.value + ' <span onclick="removeItem(this)">x</span>';
-    item.setAttribute('data-value', checkbox.value);
-    selectedItems.appendChild(item);
+      const item = document.createElement('button');
+      item.innerHTML = checkbox.value + '<span class="remove-btn">x</span>';
+      item.setAttribute('data-value', checkbox.value);
+      selectedItems.appendChild(item);
+
+      // Удаление элемента по нажатию
+      item.querySelector('.remove-btn').addEventListener('click', function () {
+          checkbox.checked = false;
+          selectedItems.removeChild(item);
+      });
+
   } else {
-    const itemToRemove = selectedItems.querySelector(`[data-value="${checkbox.value}"]`);
-    if (itemToRemove) {
-      selectedItems.removeChild(itemToRemove);
-    }
+      const itemToRemove = selectedItems.querySelector(`[data-value="${checkbox.value}"]`);
+      if (itemToRemove) {
+          selectedItems.removeChild(itemToRemove);
+      }
   }
 });
-
-function removeItem(element) { // Функция удаления элемента
-  const value = element.parentNode.getAttribute('data-value');
-  const checkbox = dropdown.querySelector(`input[value="${value}"]`);
-  if (checkbox) {
-    checkbox.checked = false; // Снимаем чекбокс
-  }
-  selectedItems.removeChild(element.parentNode); // Удаляем элемент
-}
-
-
-
-
 
 
 //Переворот стрелки
@@ -238,83 +208,6 @@ inpList.addEventListener('click', function (e) {
   inpImg.style.transform = inpImg.style.transform === "rotate(180deg)" ? 'rotate(360deg)' : 'rotate(180deg)' ;
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 });
