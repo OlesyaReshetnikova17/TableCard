@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор объема</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    
+
+</head>
+
+<body>
+
+    <button id="openModalBtn">Открыть калькулятор</button>
+     <div id="modal" class="modal">
+        <div class="modal-content">
+          <div class="modal_header">
+            <h2 class="text">Калькулятор</h2>
+            <button class="btn-modal" id="close">×</button>
+          </div>
+          <div class="gap wrapper">
+            <p class="text-purple">Шаг 1</p>
+            <p class="text">Добавьте товары или выберете заказ</p>
+          </div>
+          <div class="form-example">
+            <label>Выберете заказ 
+              <img src="icons8-вопросительный-знак-24.png" alt="qwestion">
+            </label>
+              <input type="number" name="name" id="name" placeholder="Начните вводить номер заказа" required />
+          </div>
+          <div class="cards" id="cards">
+            <form action="" method="get" class="form-example" id="form">
+              <div id="box" class="card">
+                <div class="card-name">
+                  <p class="text-purple gap">Товар<span class="count"></span></p>
+                  <button class="btn-card" id="Cardclose"  >—</button>
+                </div>
+                <div class="form-example">
+                  <label>Название товара</label>
+                    <input type="number" name="name"  placeholder="Футболка" required />
+                <div class="gap">
+                  <p class="text">Скорее всего, это</p>
+                  <p class="text-purple">линия "Одежда"</p>
+                </div>
+                  <p class="text">Введите транспортировочные данные</p>
+                    <div class="unit-list">
+                      <div class="unit">
+                        <label>Длина, см</label>
+                        <input class="length"  type="number" placeholder="Длина" required />
+                      </div>
+                      <div class="unit">
+                        <label>Ширина, см</label>
+                        <input type="number" class="width" placeholder="Ширина" required />
+                      </div>
+                      <div class="unit">
+                        <label>Высота, см</label>
+                        <input type="number" class="height"  placeholder="Высота" required />
+                      </div>
+                      <p class="unit-list_text">или</p>
+                      <div class="unit">
+                        <label>Введите объём</label>
+                        <input type="number" class="volume" placeholder="Объём" required />
+                      </div>
+                    </div>
+                    <label>Вес коробки, кг</label>
+                    <input class="weight" type="number" value=""  placeholder="Введите вес коробки" required />
+                    <label>Кол-во коробок, шт</label>
+                    <input type="number" value=""  placeholder="Введите кол-во коробок" required />
+                    <label>Стоимость товара, ¥</label>
+                    <input type="number" name="name"  placeholder="Введите общую стоимость всего товара" required />
+                    <label><input type="checkbox" value="Хрупкий товар">Хрупкий товар</label>
+                </div>
+              </div>
+            </form>
+            <form action="" method="get" class="form-example">
+              <div class="card">
+                <div class="card-name">
+                  <p class="text-purple gap">Товар<span class="count"></span></p>
+                  <button class="btn-card">—</button>
+                </div>
+                <div class="form-example">
+                  <label>Название товара</label>
+                  <input type="number" name="name" placeholder="Футболка" required />
+                  <div class="gap">
+                    <p class="text">Скорее всего, это</p>
+                    <p class="text-purple">линия "Одежда"</p>
+                  </div>
+                  <p class="text">Введите транспортировочные данные</p>
+                  <div class="unit-list">
+                    <div class="unit">
+                      <label>Длина, см</label>
+                      <input class="length"  type="number" placeholder="Длина" required />
+                    </div>
+                    <div class="unit">
+                      <label>Ширина, см</label>
+                      <input type="number" class="width" placeholder="Ширина" required />
+                    </div>
+                    <div class="unit">
+                      <label>Высота, см</label>
+                      <input type="number" class="height"  placeholder="Высота" required />
+                    </div>
+                    <p class="unit-list_text">или</p>
+                    <div class="unit">
+                    <label>Введите объём</label>
+                    <input type="number" class="volume" placeholder="Объём" required />
+                    </div>
+                  </div>
+                  <label>Вес коробки, кг</label>
+                  <input class="weight" type="number" placeholder="Введите вес коробки" required />
+                  <label>Кол-во коробок, шт</label>
+                  <input type="number" placeholder="Введите кол-во коробок" required />
+                  <label>Стоимость товара, ¥</label>
+                  <input type="number" placeholder="Введите общую стоимость всего товара" required />
+                  <label><input type="checkbox" value="Хрупкий товар">Хрупкий товар</label>
+                </div>
+              </div>
+            </form>
+              <div class="buttonAdd">
+                <button class="addCard">+</button>
+                <p class="text-purple">Добавить товар</p>
+              </div>
+          </div>
+          <div class="result">
+            <p class="text">Результат подсчета</p>
+            <div class="unit-list">
+              <div class="unit">
+                <label>Общий вес</label>
+                <input class="grey" id="sum" placeholder="620" readonly />
+              </div>
+              <div class="unit">
+                <label>Общий объём</label>
+                <input class="grey" id="sumVolume" placeholder="620" readonly />
+              </div>
+              <div class="unit">
+                <label>Плотность товаров</label>
+                <input class="grey"  placeholder="620" readonly />
+              </div>
+              <p class="unit-list_text">или</p>
+              <div class="unit">
+              <label>Стоимость товаров, $</label>
+              <input class="grey"  placeholder="620" readonly />
+              </div>
+            </div>
+          </div>
+
+
+          <div class="packaging">
+            <div class="gap-title">
+              <div class="title_start gap">
+                <p class="text-purple">Шаг 2</p>
+                <p class="text">Укажите упаковку</p>
+              </div>
+              <div class="title_end">
+                <p class="text">Совет: используйте</p>
+                <p class="text-purple">Обрешетку</p>
+              </div>
+
+            </div>
+            <label class="packaging-input">
+              <input class="myInput" type="text" id="myInput" placeholder="Выберите элементы" readonly>
+              <img class="input-img" src="./down-arrow.png" alt="down-arrow">
+            </label>
+            
+              <div class="dropdown" id="dropdown" style="display: none;">
+                <label><input type="checkbox" value="Элемент 1" data-price="620">Элемент 1 (620р/шт)</label><br>
+                <label><input type="checkbox" value="Элемент 2" data-price="620">Элемент 2 (620р/шт)</label><br>
+                <label><input type="checkbox" value="Элемент 3" data-price="620">Элемент 3 (620р/шт)</label>
+              </div>
+              <div id="selectedItems"></div>
+          </div>
+          
+
+          <div class="total">
+            <p class="text">Пересчёт с учётом упаковки</p>
+            <div class="unit-list">
+              <div class="unit">
+                <label>Итого вес</label>
+                <input class="grey" type="number"  placeholder="620" readonly />
+              </div>
+              <div class="unit">
+                <label>Итого объём</label>
+                <input class="grey" type="number"  placeholder="3.1" readonly />
+              </div>
+              <div class="unit">
+                <label>Итого плотность</label>
+                <input class="grey" type="number"  placeholder="200" readonly />
+              </div>
+              <p class="unit-list_text">или</p>
+              <div class="unit">
+              <label>Страховка, %</label>
+              <input class="grey" type="number"  id="unit" placeholder="1%" readonly />
+              </div>
+            </div>
+          </div>
+          <p class="text">Детализация предварительного расчёта стоимости перевозки</p>
+          
+
+
+
+          
+            <table class="table_header">
+              <tr>
+                <td></td>
+                <td class="table-title">10-15 дней</td>
+                <td class="table-title">18-25 дней</td>
+                <td class="table-title">20-30 дней</td>
+              </tr>
+            </table>
+            <table class="table">
+              <tr>
+                <td class="table-title">Ставка за кг</td>
+                <td class="table-text">2.2$</td>
+                <td class="table-text">2.2$</td>
+                <td class="table-text">2.2$</td>
+              </tr>
+              <tr>
+                <td class="table-title">Стоимость доставки</td>
+                <td class="table-text">200.2$</td>
+                <td class="table-text">200.2$</td>
+                <td class="table-text">200.2$</td>
+              </tr>
+              <tr>
+                <td class="table-title">Упаковка</td>
+                <td class="table-text">68.0$</td>
+                <td class="table-text">68.0$</td>
+                <td class="table-text">68.0$</td>
+              </tr>
+              <tr>
+                <td class="table-title">Разгрузка</td>
+                <td class="table-text">72.0$</td>
+                <td class="table-text">72.0$</td>
+                <td class="table-text">72.0$</td>
+              </tr>
+              <tr>
+                <td class="table-title">Страховка</td>
+                <td class="table-text">60.0$</td>
+                <td class="table-text">60.0$</td>
+                <td class="table-text">60.0$</td>
+              </tr>
+             
+            </table>
+
+
+
+
+   
+      <button class="btn-form">Сохранить расчёт</button>
+
+
+        </div>
+
+      </div>
+
+
+      
+      
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+html{box-sizing:border-box}
+body{
+  background-color:#fff;
+  font-family:Montserrat,sans-serif;
+  font-style:normal
+}
+@font-face{
+  font-family:Montserrat;
+  src:url('./fonts/Montserrat-Regular.woff2') format('woff2'),url('../fonts/Montserrat-Regular.woff') format('woff');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+  line-height:32px
+}
+  @font-face{
+    font-family:Montserrat;
+    src:url('./fonts/Montserrat-SemiBold.woff2') format('woff2'),url('./fonts/Montserrat-SemiBold.woff') format('woff');
+    font-weight:500;
+    font-style:normal;
+    font-display:swap;
+    line-height:32px
+  }
+  @font-face{
+    font-family:Montserrat;
+    src:url('./fonts/Montserrat-Bold.woff2') format('woff2'),url('./fonts/Montserrat-Bold.woff') format('woff');
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+    line-height:32px
+  }
+  @font-face{
+    font-family:Montserrat;
+    src:url('./fonts/Montserrat-ExtraBold.woff2') format('woff2'),url('./fonts/Montserrat-ExtraBold.woff') format('woff');
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
+    line-height:32px
+  }
+  body{
+    margin:0;
+    padding:0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+
+button {
+    max-width: 172px;
+    background-color: #5b4cc5;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    font-size: 13px;
+}
+
+
+/* Стили модального окна */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+  z-index: 1;
+  overflow: auto; /* Добавляем прокрутку, если контент не помещается */
+
+}
+div{
+  display: flex;
+}
+.form-example{
+  margin-bottom: 20px;
+  gap: 10px;
+  flex-direction: column;
+}
+
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  margin: 5% auto; /* Центрируем окно */
+  padding: 26.5px;
+  border: 1px solid #888;
+  width: 80%; /* Задаем ширину */
+  max-width: 700px; /* Ограничиваем максимальную ширину */
+  border-radius: 40px;
+  position: relative;
+}
+.modal_header{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper{
+  margin-bottom: 10px;
+}
+
+input{
+  padding: 15px;
+  border-radius: 40px;
+  border: none;
+  border: #d9d9d9 1px solid;
+}
+
+.btn-modal{
+  padding: 0;
+  background-color: white;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.text-purple{
+  display: flex;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  color: #5b4cc5;
+  font-weight: 500;
+}
+.text{
+  display: flex;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+img{
+  width: 15px;
+  height: 15px;
+}
+.count{
+  display: flex;
+  counter-increment: demoCounter;
+  font-size: 16px;
+
+}
+.count:before {
+  content: '' counter(demoCounter);
+}
+.cards{
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  flex-direction: column;
+  border-bottom: #d9d9d9 solid 2px;
+}
+.card{
+  flex-direction: column;
+}
+.card-name{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+label{
+  font-size: 12px;
+  font-weight: 400;
+  color: #d9d9d9;
+}
+.btn-card{
+  background: none;
+}
+.gap{
+  gap: 10px;
+}
+.unit{
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  max-width: 140px;
+}
+.unit-list{
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.unit-list_text{
+  color: #292929;
+  font-weight: 500;
+  padding: 0;
+}
+.addCard{
+  width: 31px;
+  height: 31px;
+  padding: 0;
+  color: #5b4cc5;
+  background-color: #fff;
+  border-radius: 50%;
+  font-size: 28px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+.buttonAdd{
+  align-items: center;
+  gap: 10px;
+}
+.result{
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  flex-direction: column;
+  border-bottom: #d9d9d9 solid 2px;
+}
+.gap-title{
+  justify-content: space-between;
+}
+.packaging{
+  margin-bottom: 25px;
+  gap: 10px;
+  flex-direction: column;
+  padding-bottom: 25px;
+  border-bottom: #d9d9d9 solid 2px;
+  
+}
+.packaging-input{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  border: #d9d9d9 1px solid;
+  border-radius: 40px;
+  align-items: center;
+}
+.myInput{
+  position: relative;
+  border: none;
+  width: 100%;
+}
+.total{
+  margin-bottom: 25px;
+  flex-direction: column;
+  padding-bottom: 25px;
+  border-bottom: #d9d9d9 solid 2px;
+}
+.input-img{
+  position: absolute;
+  right: 15px;
+}
+th{
+  width: 25%;
+}
+td:first-child{
+  width: 40%;
+}
+.table-title{
+  color: #d9d9d9;
+  font-weight: 400;
+}
+.table_header{
+  border-top: #d9d9d9 solid 1px;
+  border-bottom: #d9d9d9 solid 1px;
+}
+input[type="checkbox"] {
+    accent-color: #5b4cc5;
+}
+.title_end{
+  gap: 10px;
+}
+.table{
+  margin-bottom: 20px;
+}
+.length{
+  background-color: #d9d9d9;
+}
+.width{
+  background-color: #d9d9d9;
+}
+.height{
+  background-color: #d9d9d9;
+}
+.volume{
+  background-color: #d9d9d9;
+}
+.grey{
+  background-color: #d9d9d9;
+}
